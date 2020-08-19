@@ -31,7 +31,7 @@ namespace MyShop.DataAccess.InMemory
         {
             products.Add(p);
         }
-      
+
         public void Update(Product product)
         {
             Product productToUpdate = products.Find(p => p.Id == product.Id);
@@ -46,6 +46,7 @@ namespace MyShop.DataAccess.InMemory
             }
         }
 
+       
         public Product Find(string Id)
         {
             Product productToFind = products.Find(p => p.Id == Id);
@@ -60,12 +61,15 @@ namespace MyShop.DataAccess.InMemory
             }
 
         }
-	
+
+
+
       public IQueryable<Product> Collection()
       {
             return products.AsQueryable();
       }
 
+        
         public void Delete (string Id)
         {
             Product productToDelete = products.Find(p => p.Id == Id);
@@ -78,9 +82,7 @@ namespace MyShop.DataAccess.InMemory
             {
                 throw new Exception("Product not found");
             }
-
+          
         }
-
-
    }
 }
